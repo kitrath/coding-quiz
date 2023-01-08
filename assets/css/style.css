@@ -1,7 +1,13 @@
 .countdown-container,
 .container,
-.card {
+.card,
+.quiz-answer,
+.quiz-answers {
     border: 1px solid red;
+}
+
+body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
 .countdown-container,
@@ -29,6 +35,18 @@
 .card {
     max-width: 60rem;
     padding: 2rem;
+}
+
+.quiz-question {
+    font-size: 1.6rem;
+}
+.quiz-answers {
+    padding-left: 0;
+}
+.quiz-answer {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
 /* styles for larger screens */
