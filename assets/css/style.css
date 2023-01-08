@@ -1,0 +1,45 @@
+.countdown-container,
+.container,
+.card {
+    border: 1px solid red;
+}
+
+.countdown-container,
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-container {
+    margin: 1rem 0;
+}
+
+#countdown {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:
+}
+
+.container {
+    /* TODO: revisit */
+    padding-top: 2rem;
+}
+
+.card {
+    max-width: 60rem;
+    padding: 2rem;
+}
+
+/* styles for larger screens */
+@media screen and (min-width: 768px) {
+
+    .container {
+        /* expand .container vertically on larger screens */
+        min-height: 70vh;
+    }
+
+    .card {
+        min-height: 24rem;
+    }
+}
