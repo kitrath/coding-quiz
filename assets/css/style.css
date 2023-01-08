@@ -8,14 +8,14 @@
 } */
 
 :root {
-    --body-background: rgb(249, 249, 249);
-    --dark-blue: rgb(36, 65, 114);
+    --dark-blue: rgb(65, 79, 129); 
+    --light-blue: rgb(143, 166, 239);
     --dark-red: rgb(183, 15, 0);
     --countdown-red: rgba(183, 15, 0, 0.6);
     --dark-text: rgb(24, 38, 48);
     --light-orange-gray: rgb(252, 250, 247);
     --correct-green: rgb(79, 193, 75);
-    --light-text: rgb(244, 240, 249);
+    --light-text: #fefefe;
 }
 
 body {
@@ -89,12 +89,12 @@ body {
     padding: 0.9rem;
     margin-top: 0.4rem;
     border-top: 1px solid #cdcdcd;
-    border-bottom: 1px solid #888888;
+    border-bottom: 1px solid #a9a9a9;
     border-radius: 2px;
 }
 
 .quiz-answer:hover {
-    border: 3px solid var(--dark-blue);
+    border: 3px solid var(--light-blue);
 }
 
 /* styles for larger screens */
