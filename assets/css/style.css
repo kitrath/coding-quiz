@@ -1,13 +1,26 @@
-.countdown-container,
+/* .countdown-container,
 .container,
 .card,
+.card-header,
 .quiz-answer,
 .quiz-answers {
     border: 1px solid red;
+} */
+
+:root {
+    --body-background: rgb(249, 249, 249);
+    --dark-blue: rgb(36, 65, 114);
+    --dark-red: rgb(183, 15, 0);
+    --countdown-red: rgba(183, 15, 0, 0.6);
+    --dark-text: rgb(24, 38, 48);
+    --light-orange-gray: rgb(252, 250, 247);
+    --correct-green: rgb(79, 193, 75);
+    --light-text: rgb(244, 240, 249);
 }
 
 body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
+    background: var(--body-background);
 }
 
 .countdown-container,
@@ -24,6 +37,10 @@ body {
 #countdown {
     font-size: 2.5rem;
     font-weight: bold;
+    padding: 0.4rem 0.8rem;
+    background-color: var(--countdown-red);
+    color: var(--light-text);
+    border-radius: 8px;
 }
 
 .container {
@@ -32,20 +49,52 @@ body {
 }
 
 .card {
-    max-width: 60rem;
-    padding: 2rem;
+    /* max-width: 60rem; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.card-header {
+    width: 100%;
+    padding: 1rem 1.8rem;
+    background-color: var(--dark-blue);
+    color: var(--light-text);
+    border-radius: 4px 4px 0 0;
+}
+
+.card-body {
+    /* padding-top: 1rem; */
 }
 
 .quiz-question {
     font-size: 1.6rem;
 }
-.quiz-answers {
-    padding-left: 0;
-}
-.quiz-answer {
-    width: 100%;
-    margin-bottom: 1rem;
+
+.quiz-question-text {
     font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.quiz-answers {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    list-style-type: upper-alpha;
+}
+
+.quiz-answer {
+    list-style-position: inside;
+    width: 100%;
+    padding: 0.9rem;
+    margin-top: 0.4rem;
+    border-top: 1px solid #cdcdcd;
+    border-bottom: 1px solid #888888;
+    border-radius: 2px;
+}
+
+.quiz-answer:hover {
+    border: 3px solid var(--dark-blue);
 }
 
 /* styles for larger screens */
@@ -57,6 +106,6 @@ body {
     }
 
     .card {
-        min-height: 24rem;
+        max-width: 60rem;
     }
 }
