@@ -7,27 +7,38 @@ for (const question of quizJS) {
 }
 
 // utility funcitons
-const isObjectEmpty = (obj) => {
+function isObjectEmpty(obj) {
     return (
         obj &&
         Object.keys(obj).length === 0 && 
         typeof obj.constructor === Object
     );
-
 }
 
-const createEl = (tagName, classList = []) => {
+// Returns a new HTML Element
+// `tagName` is an element tag name as a string,
+//   e.g. 'li', 'div', 'ul', etc.
+// `classNames` can be an single array of class name strings or
+//   class name strings passed as multiple, single arguments.
+function createEl(tagName, ...classNames) {
     let el = document.createElement(tagName);
-    for (const className of classList) {
-        el.setAttribute("class", className);
+    if (!Array.isArray(classNames[0])) {
+        for (const className of classNames) {
+            // ignore any arrays after single string arg
+            if (Array.isArray(className)) continue;
+            el.classList.add(className);
+        }
+    } else if (classNames[0].length) {
+        el.classList.add(...classNames[0])
     }
     return el;
-};   
+    
+}   
 
 // Returns a reference to the removed element.
 // `selector` is a selector string
 // `parentElem` is a reference to the parent element of the element to remove.
-const removeEl = (selector, parentElem) => {
+function removeEl(selector, parentElem) {
     const el = document.querySelector(el);
     return parentElem.removeChild(el);
 }
@@ -39,10 +50,57 @@ const leaderBoardButton = document.querySelector("#leaderboard");
 
 // At the start of the quiz, we'll remove the current card.  We'll
 // keep the reference to it alive and replace it after the quiz
-const cardContainer = document.querySelector('.container');
+const cardContainer    = document.querySelector('.container');
 let initialCardRemoved = false;
 
+// Returns a `ul.quiz-answers` HTMLElement
+function getQuizOptions(optionsList) {
+    const ul = createEl('ul', 'quiz-answers');
+    for (const option in optionsList) {
+        let classList = ['quiz-answer'];
+        if (optionsList[option]['correct']) {
+            // TODO: Consider other options for this
+            classList.push('correct');
+        }
+        let li = createEl('li', classList);
+        li.textContent = optionsList[option]['text'];
+        ul.appendChild(li);
+    }
+    return ul;
+}
 
+// Returns a `.card` HTMLelement (<div>) containing a quiz question
+function createQuizQuestion(quizQuestion, count) {
+    // parent
+    const cardDiv = createEl('div', 'card');
+    cardDiv.setAttribute('data-quiz-id', quizQuestion['id']);
+    
+    // first child
+    const cardHeaderDiv = createEl('div', 'card-header');
+    const quizQuestionH2 = createEl('h2', 'quiz-question-number');
+
+    quizQuestionH2.textContent = `Question #${count}`;
+    const quizQuestionText = createEl('p', 'quiz-question-text');
+    // Need innerHTML for the blank underline <span>s in some questions
+    quizQuestionText.innerHTML = quizQuestion['question'];
+
+    cardHeaderDiv.appendChild(quizQuestionH2);
+    cardHeaderDiv.appendChild(quizQuestionText);
+
+    // second child
+    const cardBody = createEl('div', 'card-body');
+    const quizOptions = getQuizOptions(quizQuestion['options']);
+    cardBody.appendChild(quizOptions);
+
+    // append first child to card
+    cardDiv.appendChild(cardHeaderDiv);
+    // append second child to car
+    cardDiv.appendChild(cardBody);
+
+    return cardDiv;
+}
+
+cardContainer.replaceChild(createQuizQuestion(quizJS[0], 1), document.querySelector('.card'));
 // END IIFE
 })(window, document);
 
