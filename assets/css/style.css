@@ -11,7 +11,7 @@
     --dark-blue: rgb(65, 79, 129); 
     --light-blue: rgb(143, 166, 239);
     --dark-red: rgb(183, 15, 0);
-    --countdown-red: rgba(183, 15, 0, 0.6);
+    --transparent-red: rgba(183, 15, 0, 0.6);
     --dark-text: rgb(24, 38, 48);
     --light-orange-gray: rgb(252, 250, 247);
     --correct-green: rgb(79, 193, 75);
@@ -38,7 +38,7 @@ body {
     font-size: 2.5rem;
     font-weight: bold;
     padding: 0.4rem 0.8rem;
-    background-color: var(--countdown-red);
+    background-color: var(--transparent-red);
     color: var(--light-text);
     border-radius: 8px;
 }
@@ -51,6 +51,33 @@ body {
 .card {
     /* max-width: 60rem; */
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.start {
+    display: flex;
+    justify-content: center;
+}
+
+.start-quiz {
+    background-color: var(--dark-red);
+    color: var(--light-text);
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 0.4rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+}
+
+.start-quiz:hover {
+    background-color: var(--transparent-red);
+    border: 2px dotted var(--light-text);
+}
+
+.quiz-description {
+    text-align: center;
+    padding: 1rem 2rem;
+    line-height: 1.6;
+    font-weight: 600;
+    color: var(--dark-text);
 }
 
 .card[data-quiz-id] {
