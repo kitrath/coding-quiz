@@ -66,6 +66,17 @@ function getQuizOptions(optionsList) {
         li.textContent = optionsList[option]['text'];
         ul.appendChild(li);
     }
+    // respond to clicks on answer options
+    ul.addEventListener('click', function(event) {
+        let target = event.target;
+        if (target.matches('.correct')) {
+            target.style.backgroundColor = '#7cbf83';
+        } else {
+            target.style.backgroundColor = '#f47069';
+        }
+        // use setTimeout to delay transition to next question
+    });
+
     return ul;
 }
 
@@ -101,6 +112,8 @@ function createQuizQuestion(quizQuestion, count) {
 }
 
 cardContainer.replaceChild(createQuizQuestion(quizJS[0], 1), document.querySelector('.card'));
+
+nextButton.addEventListener('click', function(event) {})
 // END IIFE
 })(window, document);
 
