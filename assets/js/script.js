@@ -1,6 +1,50 @@
+// IIFE to protect global scope
+(function (window, document) {
+
+// TODO: Remove
 for (const question of quizJS) {
     console.log(JSON.stringify(question));
 }
+
+// utility funcitons
+const isObjectEmpty = (obj) => {
+    return (
+        obj &&
+        Object.keys(obj).length === 0 && 
+        typeof obj.constructor === Object
+    );
+
+}
+
+const createEl = (tagName, classList = []) => {
+    let el = document.createElement(tagName);
+    for (const className of classList) {
+        el.setAttribute("class", className);
+    }
+    return el;
+};   
+
+// Returns a reference to the removed element.
+// `selector` is a selector string
+// `parentElem` is a reference to the parent element of the element to remove.
+const removeEl = (selector, parentElem) => {
+    const el = document.querySelector(el);
+    return parentElem.removeChild(el);
+}
+
+// Elements we'll need
+const startButton       = document.querySelector("#start-quiz");
+const nextButton        = document.querySelector("#next");
+const leaderBoardButton = document.querySelector("#leaderboard");
+
+// At the start of the quiz, we'll remove the current card.  We'll
+// keep the reference to it alive and replace it after the quiz
+const cardContainer = document.querySelector('.container');
+let initialCardRemoved = false;
+
+
+// END IIFE
+})(window, document);
 
 // When user presses "start quiz" button
 // First quiz question is loaded in card
