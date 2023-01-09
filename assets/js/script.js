@@ -156,30 +156,11 @@ function createQuizQuestion(quiz) {
     return cardDiv;
 }
 
-
-
-
-
 startButton.addEventListener('click', function(event) {
     // Quiz is now in progress
     quiz.inProgress = true;
     cardContainer.replaceChild(createQuizQuestion(quiz), document.querySelector('.card'));
 });
-
-nextButton.addEventListener('click', function(event) {
-    // Introspect global quiz object to see where we are
-    if (!quiz.inProgress) {
-        // do nothing if no quiz
-        return;
-    } else {
-        // get current reference to .card section
-        const currentCard = document.querySelector('.card');
-        quiz.incrementIndex();
-        cardContainer.replaceChild(createQuizQuestion(quiz), currentCard); 
-    }
-});
-
-
 
 // END IIFE
 })(window, document);

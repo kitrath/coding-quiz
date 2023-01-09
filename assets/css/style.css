@@ -23,6 +23,14 @@ body {
     background: var(--body-background);
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
 .countdown-container,
 .container {
     display: flex;

@@ -35,11 +35,11 @@ var quizJS = [
             },
             {
                 text: `parentheses`,
-                corrct: true
+                correct: true
             },
             {
                 text: `square brackets`,
-                corrct: false
+                correct: false
             }
         ]
     },
