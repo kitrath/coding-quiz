@@ -53,6 +53,23 @@ body {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
+.card[data-quiz-id] {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 300ms;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .card-header {
     width: 100%;
     padding: 1rem 1.8rem;
@@ -106,6 +123,7 @@ body {
     }
 
     .card {
-        max-width: 60rem;
+        min-width: 50rem;
+        max-width: 50rem;
     }
 }
