@@ -269,6 +269,8 @@ function createResultsForm(totalScore) {
     return resultsForm;
 }
 
+
+
 function endQuiz(quiz) {
   // This will stop global timer
     quiz.completed = true;
