@@ -29,6 +29,19 @@ header {
     align-items: center;
 }
 
+.leaderboard-container > a {
+    margin-top: 1.4rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.blank-underline {
+    display: inline-block;
+    min-width: 42px;
+    border-bottom: 3px solid var(--light-text);
+}
+
 .countdown-container {
     margin: 1rem 0;
 }

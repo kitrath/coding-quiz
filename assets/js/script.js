@@ -21,15 +21,14 @@ function createEl(tagName, ...classNames) {
     
 }   
 
-// Global Constants
-const TIME_LEFT = 20;
+// Global Constant
+const TIME_LEFT = 50;
 
 // Elements we'll need
 const startButton       = document.querySelector(".start-quiz");
 const nextButton        = document.querySelector("#next");
 const countdownTimer    = document.querySelector("#countdown");
-// At the start of the quiz, we'll remove the current card.  We'll
-// keep the reference to it alive and replace it after the quiz
+// At the start of the quiz, we'll remove the current card.  
 const cardContainer    = document.querySelector('.container');
 
 // Quiz class
