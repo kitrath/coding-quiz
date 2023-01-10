@@ -1,3 +1,8 @@
+(function(window, document) {
+
+// Avoid a lookup
+const localStorage = window.localStorage;
+
 function createListItem(className, text) {
     const listEl = document.createElement('li');
     listEl.setAttribute("class", className);
@@ -48,3 +53,6 @@ function compareScores(a, b) {
 }
 
 getLeaderBoard();
+
+// END IIFE
+})(window, document);
