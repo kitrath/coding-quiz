@@ -1,11 +1,3 @@
-/* .countdown-container,
-.container,
-.card,
-.card-header,
-.quiz-answer,
-.quiz-answers {
-    border: 1px solid red;
-} */
 
 :root {
     --dark-blue: rgb(65, 79, 129); 
@@ -31,10 +23,9 @@ body {
     display: block;
 }
 
-.countdown-container,
-.container {
+header {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -43,18 +34,23 @@ body {
 }
 
 #countdown {
+    visibility: hidden;
     font-size: 2.5rem;
+    min-width: 4rem;
     font-weight: bold;
-    padding: 0.4rem 0.8rem;
-    background-color: var(--transparent-red);
+    padding: 0.2rem 0.8rem;
+    background-color: var(--dark-red);
     color: var(--light-text);
     border-radius: 8px;
 }
 
 .container {
-    /* TODO: revisit */
-    padding-top: 2rem;
+    padding-top:2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .card {
     /* max-width: 60rem; */
@@ -63,6 +59,11 @@ body {
 .start {
     display: flex;
     justify-content: center;
+}
+
+.results {
+    min-height: 20rem;
+    padding: 2rem;
 }
 
 .start-quiz {
@@ -147,6 +148,19 @@ body {
 
 .quiz-answer:hover {
     border: 3px solid var(--light-blue);
+}
+
+.result-message {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0.8rem;
+}
+
+.inital-form-container {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
 }
 
 /* styles for larger screens */
